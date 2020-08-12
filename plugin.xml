@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- プラグインのIDを記述。バージョンをpackage.jsonと合わせておく -->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  id="stationery1012.plugin.battery" 
+  version="0.0.1">
+ 
+    <!-- プラグイン全体に関する設定 -->
+    <name>BatteryPlugin</name>
+ 
+    <!-- プラグインの説明 -->
+    <description>Battery Plugin</description>
+ 
+    <!-- プラグイン作成者 -->
+    <author>stationery1012</author>
+ 
+    <!-- ライセンス -->
+    <license>MIT License</license>
+ 
+    <!-- 対応Cordovaのバージョン -->
+    <engines>
+      <engine name="cordova" version=">=3.5.0" />
+    </engines>
+ 
+    <!-- アプリ側で呼び出すJavaScriptファイル名 -->
+    <js-module src="www/battery.js" name="battery">
+        <clobbers target="Battery" />
+    </js-module>
+ 
+    <!-- iOS用の設定 -->
+    <platform name="ios">
+ 
+      <!-- config.xmlに対する設定があればここに記述 -->
+      <config-file target="config.xml" parent="/*">
+        <feature name="CVBatteryPlugin">
+          <param name="ios-package" value="CVBatteryPlugin"/>
+        </feature>
+      </config-file>
+ 
+      <!-- 対象のソースコード -->
+      <source-file src="src/ios/CVBatteryPlugin.swift" target-dir="src/ios" />
+    </platform>
+ 
+    <!-- Android用の設定 -->
+    <platform name="android">
+ 
+      <!-- config.xmlに対する設定があればここに記述 -->
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="CVBatteryPlugin">
+          <param name="android-package" value="stationery1012.plugin.CVBatteryPlugin"/>
+        </feature>
+      </config-file>
+ 
+      <!-- AndroidManifest.xmlに対する設定があればここに記述 -->
+      <!-- 主に権限に関する設定を記述します -->
+      <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.BATTERY_STATS" />
+      </config-file>
+ 
+      <!-- 対象のソースコード -->
+      <source-file src="src/android/stationery1012/plugin/CVBatteryPlugin.java" target-dir="src/stationery1012/plugin" />
+    </platform>
+</plugin>
