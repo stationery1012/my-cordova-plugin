@@ -1,9 +1,9 @@
 {
   "version": "0.0.1",
-  "name": "cordova-plugin-battery",
-  "description": "Cordova Battery Plugin",
+  "name": "cordova-plugin-sample",
+  "description": "Cordova Sample Plugin",
   "cordova": {
-    "id": "cordova-plugin-battery",
+    "id": "cordova-plugin-sample",
     "platforms": [
       "android",
       "ios"
@@ -11,7 +11,6 @@
   },
   "keywords": [
     "cordova",
-    "battery",
     "cordova-android",
     "cordova-ios"
   ],
